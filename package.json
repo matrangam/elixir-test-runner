@@ -23,17 +23,6 @@
 				"command": "elixir-test-runner.test-file",
 				"title": "Test File"
 			}
-		],
-		"colors": [
-			{
-				"id": "exlixir_test_runner.run_test",
-				"description": "Background decoration color for lines that can execute a test",
-				"defaults": {
-					"dark": "#ff0000b8",
-					"light": "#ff0000b8",
-					"highContrast": "#ff0000b8"
-				}
-			}
 		]
 	},
 	"scripts": {

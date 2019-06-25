@@ -36,7 +36,12 @@ function activate(context) {
 	let timeout: NodeJS.Timer | undefined = undefined;
 	const testDecorationType = vscode.window.createTextEditorDecorationType({
 		cursor: 'crosshair',
-		backgroundColor: { id: 'myextension.largeNumberBackground' }
+		borderWidth: '1px',
+		borderStyle: 'solid',
+		overviewRulerColor: 'blue',
+		overviewRulerLane: vscode.OverviewRulerLane.Right,
+		light: { borderColor: 'darkblue' },
+		dark: { borderColor: 'lightblue' }
 	});
 	let activeEditor = vscode.window.activeTextEditor;
 	function updateDecorations() {
@@ -58,7 +63,7 @@ function activate(context) {
 				lineNumber: startPos.line + 1
 			};
 			const hoverMessage = new vscode.MarkdownString(
-				`[Run Suite: ${
+				`[Run Test: ${
 				match[0]
 				}](command:exlixir-test-runner.run-test?${encodeURIComponent(
 					JSON.stringify(args)
