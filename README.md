@@ -1,31 +1,19 @@
-# Decorator Sample
+# Elixir Test Runner
 
-This folder contains a sample VS code extension that demonstrates the editor decorator API.
+Currently only works for project I'm working on, which is an umbrella style app running in a docker container.
+Hoping to get more time to add some better ux and configurability.
 
-The sample creates a decoration for each number that appears in the active editor. It
-demonstrates some of the decorator features such as borders, background colors, cursors
-and hovers.
+## Building
 
-The sample also shows the use of a user defined themeable color. Instead of hardcoding a color value this allows users (and themes) to redefine the color in the user settings.
+```vsce package```
 
-![sample](preview.png)
+## Installing
 
-## VSCode API
+```code --install-extension path/to/elixir-test-runner-0.0.1.vsix```
 
-The sample code show the usage of the vscode.[`TextEditor.setDecorations`](https://code.visualstudio.com/api/references/vscode-api#TextEditor.setDecorations) and [`vscode.window.createTextEditorDecorationType`](https://code.visualstudio.com/api/references/vscode-api#window.createTextEditorDecorationType) APIs as well as the `colors` contribution point.
 
-## Running the Sample
+# TODO:
 
-* `npm install` to initialize the project
-* `npm run watch` to start the compiler in watch mode
-* open this folder in VS Code and press `F5`
-* this will open the `[Extension Development Host]` window, running the extension:
-  * Open any document that contains single and multi-digit numbers.
-  * The extension will decorate single and multiple-digit numbers as shown in the screenshot above.
-  * In the user settings, add
-    ```
-    "workbench.colorCustomizations": {
-        "myextension.largeNumberBackground": "#ff00ff"
-    }
-    ```
-    to customize the large number decoration color.
+* [ ] Explore better text decoration patterns.
+* [ ] Create links to failed tests in the console.
+* [ ] Add support for configuration, ie test command, umbrella path, etc.
