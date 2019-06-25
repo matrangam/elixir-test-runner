@@ -18,6 +18,12 @@
 	],
 	"main": "./out/extension.js",
 	"contributes": {
+		"commands": [
+			{
+				"command": "elixir-test-runner.test-file",
+				"title": "Test File"
+			}
+		],
 		"colors": [
 			{
 				"id": "exlixir_test_runner.run_test",

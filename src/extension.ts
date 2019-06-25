@@ -4,19 +4,34 @@ const vscode = require("vscode");
 
 function activate(context) {
 
-	const command = 'exlixir-test-runner.run-test';
+	const hoverCommand = 'exlixir-test-runner.run-test';
 	const runTest = (args) => {
 		const index = args.uri.indexOf("test")
 		const actualURI = args.uri.slice(index)
-		const command = `./scripts/test ${actualURI}:${args.lineNumber}`
+		const hoverCommand = `./scripts/test ${actualURI}:${args.lineNumber}`
 		const terminal = vscode.window.createTerminal();
 		terminal.show();
-		terminal.sendText(command)
+		terminal.sendText(hoverCommand)
 	};
 
 	context.subscriptions.push(
-		vscode.commands.registerCommand(command, runTest)
+		vscode.commands.registerCommand(hoverCommand, runTest)
 	);
+
+	const paletteCommand = "elixir-test-runner.test-file";
+	const testFile = () => {
+		const uri = activeEditor.document.uri.path
+		const index = uri.indexOf("test")
+		const actualURI = uri.slice(index)
+		const hoverCommand = `./scripts/test ${actualURI}`
+		const terminal = vscode.window.createTerminal();
+		terminal.show();
+		terminal.sendText(hoverCommand)
+	}
+	context.subscriptions.push(
+		vscode.commands.registerCommand(paletteCommand, testFile)
+	);
+	
 
 	let timeout: NodeJS.Timer | undefined = undefined;
 	const testDecorationType = vscode.window.createTextEditorDecorationType({
