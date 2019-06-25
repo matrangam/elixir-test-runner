@@ -1,14 +1,14 @@
 {
-	"name": "decorator-sample",
-	"description": "Sample for the decorator API",
+	"name": "elixir-test-runner",
+	"description": "Runs tests in exs files inside vscode",
 	"version": "0.0.1",
-	"publisher": "vscode-samples",
+	"publisher": "matrangam",
 	"license": "MIT",
 	"engines": {
 		"vscode": "^1.32.0"
 	},
 	"repository": {
-		"url": "https://github.com/Microsoft/vscode-extension-samples"
+		"url": "https://github.com/matrangam/elixir-test-runner"
 	},
 	"categories": [
 		"Other"
@@ -21,7 +21,7 @@
 		"colors": [
 			{
 				"id": "exlixir_test_runner.run_test",
-				"description": "Background decoration color for large numbers",
+				"description": "Background decoration color for lines that can execute a test",
 				"defaults": {
 					"dark": "#ff0000b8",
 					"light": "#ff0000b8",

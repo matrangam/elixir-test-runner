@@ -4,13 +4,11 @@ const vscode = require("vscode");
 
 function activate(context) {
 
-	const command = 'exlixir_test_runner.run_test';
+	const command = 'exlixir-test-runner.run-test';
 	const runTest = (args) => {
 		const index = args.uri.indexOf("test")
 		const actualURI = args.uri.slice(index)
 		const command = `./scripts/test ${actualURI}:${args.lineNumber}`
-		console.log(command);
-
 		const terminal = vscode.window.createTerminal();
 		terminal.show();
 		terminal.sendText(command)
@@ -20,7 +18,7 @@ function activate(context) {
 		vscode.commands.registerCommand(command, runTest)
 	);
 
-	let timeout = undefined;
+	let timeout: NodeJS.Timer | undefined = undefined;
 	const testDecorationType = vscode.window.createTextEditorDecorationType({
 		cursor: 'crosshair',
 		backgroundColor: { id: 'myextension.largeNumberBackground' }
@@ -47,7 +45,7 @@ function activate(context) {
 			const hoverMessage = new vscode.MarkdownString(
 				`[Run Suite: ${
 				match[0]
-				}](command:exlixir_test_runner.run_test?${encodeURIComponent(
+				}](command:exlixir-test-runner.run-test?${encodeURIComponent(
 					JSON.stringify(args)
 				)})`
 			);
@@ -56,7 +54,7 @@ function activate(context) {
 				range: new vscode.Range(startPos, endPos),
 				hoverMessage: hoverMessage
 			};
-			testMatches.push(decoration);
+			testMatches.push(<never>decoration);
 		}
 		activeEditor.setDecorations(testDecorationType, testMatches);
 	}
