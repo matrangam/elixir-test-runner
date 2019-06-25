@@ -1,0 +1,45 @@
+{
+	"name": "decorator-sample",
+	"description": "Sample for the decorator API",
+	"version": "0.0.1",
+	"publisher": "vscode-samples",
+	"license": "MIT",
+	"engines": {
+		"vscode": "^1.32.0"
+	},
+	"repository": {
+		"url": "https://github.com/Microsoft/vscode-extension-samples"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onLanguage:elixir"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"colors": [
+			{
+				"id": "exlixir_test_runner.run_test",
+				"description": "Background decoration color for large numbers",
+				"defaults": {
+					"dark": "#ff0000b8",
+					"light": "#ff0000b8",
+					"highContrast": "#ff0000b8"
+				}
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc  -p ./",
+		"lint": "tslint -p ./",
+		"watch": "tsc -watch -p ./"
+	},
+	"devDependencies": {
+		"@types/node": "^8.9.1",
+		"tslint": "^5.16.0",
+		"typescript": "^3.4.5",
+		"@types/vscode": "^1.32.0"
+	}
+}
